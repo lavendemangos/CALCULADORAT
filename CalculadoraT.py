@@ -54,12 +54,16 @@ st.subheader("🔍 Resultados")
 st.markdown(f"**Comisión sin IVA:** {comision_sin_iva:.2f}%")
 st.markdown(f"**Comisión con IVA aplicada:** {comision_con_iva:.2f}%")
 
-# Monto recibido y a cobrar con formato más visual
+# Bloques con mejor contraste y texto oscuro
 st.markdown(
     f"""
-    <div style="background-color:#d4edda;padding:15px;border-radius:10px;">
-        💰 Si cobras <strong>${monto:,.2f}</strong>,<br>
-        <span style="font-size:22px;">recibirás aproximadamente <strong>${recibido:,.2f}</strong></span>
+    <div style="background-color:#CFF4FC;padding:15px;border-radius:10px;">
+        <p style="color:#111111;font-size:16px;margin-bottom:5px;">
+            💰 Si cobras <strong>${monto:,.2f}</strong>,
+        </p>
+        <p style="color:#111111;font-size:22px;font-weight:bold;margin-top:0;">
+            recibirás aproximadamente ${recibido:,.2f}
+        </p>
     </div>
     """,
     unsafe_allow_html=True
@@ -67,9 +71,13 @@ st.markdown(
 
 st.markdown(
     f"""
-    <div style="background-color:#d1ecf1;padding:15px;border-radius:10px;margin-top:10px;">
-        🧾 Para recibir <strong>${monto:,.2f}</strong> netos,<br>
-        <span style="font-size:22px;">deberías cobrar aproximadamente <strong>${cobrar:,.2f}</strong></span>
+    <div style="background-color:#FCEED1;padding:15px;border-radius:10px;margin-top:10px;">
+        <p style="color:#111111;font-size:16px;margin-bottom:5px;">
+            🧾 Para recibir <strong>${monto:,.2f}</strong> netos,
+        </p>
+        <p style="color:#111111;font-size:22px;font-weight:bold;margin-top:0;">
+            deberías cobrar aproximadamente ${cobrar:,.2f}
+        </p>
     </div>
     """,
     unsafe_allow_html=True
@@ -83,3 +91,4 @@ if usar_msi and plazo_msi:
 # Footer
 st.markdown("---")
 st.caption("Calculadora optimizada para uso móvil - FINARQ © 2026")
+
