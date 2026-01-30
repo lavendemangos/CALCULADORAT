@@ -54,13 +54,32 @@ st.subheader("🔍 Resultados")
 st.markdown(f"**Comisión sin IVA:** {comision_sin_iva:.2f}%")
 st.markdown(f"**Comisión con IVA aplicada:** {comision_con_iva:.2f}%")
 
-st.success(f"💰 Si cobras **${monto:,.2f}**, recibirás aproximadamente **${recibido:,.2f}**.")
-st.info(f"🧾 Para recibir **${monto:,.2f}** netos, deberías cobrar aproximadamente **${cobrar:,.2f}**.")
+# Monto recibido y a cobrar con formato más visual
+st.markdown(
+    f"""
+    <div style="background-color:#d4edda;padding:15px;border-radius:10px;">
+        💰 Si cobras <strong>${monto:,.2f}</strong>,<br>
+        <span style="font-size:22px;">recibirás aproximadamente <strong>${recibido:,.2f}</strong></span>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
+st.markdown(
+    f"""
+    <div style="background-color:#d1ecf1;padding:15px;border-radius:10px;margin-top:10px;">
+        🧾 Para recibir <strong>${monto:,.2f}</strong> netos,<br>
+        <span style="font-size:22px;">deberías cobrar aproximadamente <strong>${cobrar:,.2f}</strong></span>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+# Mensualidades
 if usar_msi and plazo_msi:
     mensualidad = monto / plazo_msi
-    st.markdown(f"📆 El cliente pagará en **{plazo_msi} mensualidades** de aproximadamente **${mensualidad:.2f}**.")
+    st.markdown(f"📅 El cliente pagará en {plazo_msi} mensualidades de aproximadamente **${mensualidad:.2f}**.")
 
 # Footer
 st.markdown("---")
-st.caption("Creado para uso móvil 📱 - FINARQ © 2026")
+st.caption("Calculadora optimizada para uso móvil - FINARQ © 2026")
